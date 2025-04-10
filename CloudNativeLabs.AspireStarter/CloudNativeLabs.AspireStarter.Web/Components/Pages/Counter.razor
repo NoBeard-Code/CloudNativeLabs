@@ -1,4 +1,5 @@
 ﻿@page "/counter"
+@using System.Diagnostics.Metrics
 @rendermode InteractiveServer
 
 <PageTitle>Counter</PageTitle>
@@ -11,9 +12,11 @@
 
 @code {
     private int currentCount = 0;
+    private Meter meter = new Meter("CounterClicks");
 
     private void IncrementCount()
     {
         currentCount++;
+        meter.CreateCounter<int>("clicks").Add(1);
     }
 }
