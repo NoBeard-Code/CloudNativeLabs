@@ -1,0 +1,6 @@
+services:
+  cloudnativelabs.docker.web:
+    image: ${DOCKER_REGISTRY-}cloudnativelabsdockerweb
+    build:
+      context: .
+      dockerfile: CloudNativeLabs.Docker/CloudNativeLabs.Docker.Web/Dockerfile
